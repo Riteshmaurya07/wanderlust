@@ -1,7 +1,7 @@
 
 # 🌍 Wanderlust
 
-**Wanderlust** is a full-stack travel and hotel booking web application built using the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to explore, list, and book rental properties around the world with a smooth and interactive interface.
+**Wanderlust** is a full-stack travel and hotel booking web application built using **Node.js**, **Express**, **MongoDB**, and **EJS**. It allows users to explore, list, and book rental properties around the world with a smooth and interactive interface.
 
 🔗 **Live Demo:** [wanderlust-3f61.onrender.com](https://wanderlust-3f61.onrender.com)
 
@@ -15,29 +15,21 @@
 - 📍 Search properties by location
 - ✏️ Edit and delete listings (for listing owners)
 - 💬 Leave reviews and ratings on listings
-- 🎨 Responsive UI with modern design
+- 🎨 Responsive UI using EJS templating
 - 🧾 Form validations and error handling
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend**  
-- React.js  
-- React Router  
-- Tailwind CSS  
-
-**Backend**  
 - Node.js  
 - Express.js  
 - MongoDB (Mongoose)  
+- EJS (Embedded JavaScript Templates)  
 - Passport.js for authentication  
-
-**Other Tools**  
 - Cloudinary (Image uploads)  
-- Mapbox or other geolocation API (if used)  
-- Multer (for file uploads)  
-- Dotenv (environment variables)
+- Multer (File uploads)  
+- Dotenv (Environment variables)
 
 ---
 
@@ -48,8 +40,6 @@
 ![image](https://github.com/user-attachments/assets/4c16f713-57ea-457c-a55b-b88b66226a76)
 ![image](https://github.com/user-attachments/assets/607a86a9-6fd9-4cbd-b61a-a0e42052abde)
 ![image](https://github.com/user-attachments/assets/04aa81ba-edd6-4dc1-8b1b-0190421827e1)
-
-
 
 ---
 
@@ -62,16 +52,15 @@ git clone https://github.com/Riteshmaurya07/wanderlust.git
 cd wanderlust
 ```
 
-### 2. Install Backend Dependencies
+### 2. Install Dependencies
 
 ```bash
-cd backend
 npm install
 ```
 
 ### 3. Set Up Environment Variables
 
-Create a `.env` file in the `backend` folder with the following:
+Create a `.env` file in the root with the following:
 
 ```env
 PORT=5000
@@ -82,20 +71,7 @@ CLOUDINARY_API_SECRET=your_api_secret
 SESSION_SECRET=your_session_secret
 ```
 
-### 4. Start the Backend Server
-
-```bash
-npm run dev
-```
-
-### 5. Install Frontend Dependencies
-
-```bash
-cd ../frontend
-npm install
-```
-
-### 6. Start the Frontend
+### 4. Start the Server
 
 ```bash
 npm run dev
@@ -108,18 +84,43 @@ npm run dev
 ```
 wanderlust/
 │
-├── backend/
-│   ├── models/
-│   ├── routes/
-│   ├── controllers/
-│   ├── middleware/
-│   └── ...
+├── controllers/              # Route handlers (listing, reviews, users)
+│   ├── listings.js
+│   ├── reviews.js
+│   └── users.js
 │
-├── frontend/
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
-│   └── ...
+├── init/                     # App initialization scripts
+│   ├── data.js
+│   └── index.js
+│
+├── models/                   # Mongoose models
+│   ├── listing.js
+│   ├── review.js
+│   └── user.js
+│
+├── public/                   # Static assets
+│   ├── css/
+│   └── js/
+│
+├── routes/                   # Express routes
+│   ├── listing.js
+│   ├── review.js
+│   └── user.js
+│
+├── utils/                    # Utility functions (error handling, wrappers)
+│
+├── views/                    # EJS templates
+│   ├── includes/
+│   ├── layouts/
+│   ├── listings/
+│   └── users/
+│
+├── middleware/               # Custom middleware
+├── cloudConfig.js            # Cloudinary setup
+├── schema.js                 # Joi schemas
+├── app.js                    # Main app file
+├── package.json
+└── README.md
 ```
 
 ---
@@ -128,8 +129,8 @@ wanderlust/
 
 - Add payment integration (Stripe, Razorpay)
 - Map-based property search with real-time location filter
-- Progressive Web App (PWA) support
 - Email notifications for bookings and messages
+- Improve mobile responsiveness and accessibility
 
 ---
 
