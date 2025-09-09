@@ -101,7 +101,7 @@ app.get("/demo", async (req, res) => {
     res.send(fakeUser);
 });
 
-app.use("/listings", listingRouter);
+app.use("/", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
